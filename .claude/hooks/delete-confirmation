@@ -1,0 +1,25 @@
+#!/bin/bash
+set -o pipefail
+
+# Delete confirmation hook - prompts on all file deletion operations
+# Always requires user confirmation regardless of bypass permissions setting
+
+INPUT=$(cat)
+COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
+
+# Detect delete operations anywhere in command (including chained commands)
+if [[ "$COMMAND" =~ (^|[;&|])[[:space:]]*(rm|unlink)[[:space:]] ]] || \
+   [[ "$COMMAND" =~ find[[:space:]]+.*-delete ]] || \
+   [[ "$COMMAND" =~ \|[[:space:]]*xargs[[:space:]]+rm[[:space:]] ]]; then
+  cat <<EOF
+{
+  "hookSpecificOutput": {
+    "hookEventName": "PreToolUse",
+    "permissionDecision": "ask",
+    "permissionDecisionReason": "File deletion requires confirmation"
+  }
+}
+EOF
+fi
+
+exit 0

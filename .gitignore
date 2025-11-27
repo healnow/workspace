@@ -1,0 +1,28 @@
+# HealNow Workspace
+# Team-shareable project wrapper repository
+
+# Claude Code - ignore local settings, allow shared config
+.claude/**/*local*
+.claude/*local*
+.claude/**/
+!.claude/common-policies/
+!.claude/hooks/
+!.claude/README.md
+
+# Project subdirectories (managed as git submodules)
+api_service/
+dashboard.healnow.co/
+healnow-admin/
+payments-ui/
+
+# IDE
+.idea/
+.vscode/
+.cursor/
+
+# macOS
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
