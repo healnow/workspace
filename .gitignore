@@ -1,28 +1,14 @@
 # HealNow Workspace
-# Team-shareable project wrapper repository
+# Ignore everything except .claude/, CLAUDE.md, and hidden files
 
-# Claude Code - ignore local settings, allow shared config
-.claude/**/*local*
-.claude/*local*
-.claude/**/
-!.claude/common-policies/
-!.claude/hooks/
-!.claude/README.md
+# Ignore all files and directories
+*
+*/
 
-# Project subdirectories (managed as git submodules)
-api_service/
-dashboard.healnow.co/
-healnow-admin/
-payments-ui/
+# Keep all hidden files and directories
+!.*/
+!.*
 
-# IDE
-.idea/
-.vscode/
-.cursor/
-
-# macOS
-.DS_Store
-
-# Temporary files
-*.tmp
-*.log
+# Explicitly keep these
+!CLAUDE.md
+!.claude/
