@@ -1,3 +1,5 @@
+@./CLAUDE.local.md
+
   # HealNow Workspace
   Multi-project healthcare platform monorepo.
 
@@ -11,7 +13,7 @@
 
   **Starting development**:
   ```bash
-  cd api_service && .claude/scripts/rails.sh s
+  cd api_service && bundle exec rails server
   cd dashboard.healnow.co && npm run dev
 
 Database changes affect:

@@ -12,3 +12,6 @@
 # Explicitly keep these
 !CLAUDE.md
 !.claude/
+
+# Ignore personal Claude configuration
+CLAUDE.local.md
