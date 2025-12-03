@@ -32,4 +32,4 @@ end
 
 ## Project Organization
 
-Save work artifacts in `.claude/<branch-name>/` (excluded from git via .gitignore)
+Save work artifacts in `.claude/branches/<branch-name>/` (excluded from git via .gitignore)
